@@ -9,7 +9,7 @@ export class StatisticService {
   constructor(private http: HttpService) {}
 
   async getDataDevTo(): Promise<IResponseDevTo[]> {
-    const config = { 'api-key': process.env.DEVTO_API_KEY };
+    const config = { 'api-key': 'p8euw9mGdAf7VvN9vmA5rWsb' };
     const data = await lastValueFrom(
       this.http
         .get('https://dev.to/api/articles/me/published', {
