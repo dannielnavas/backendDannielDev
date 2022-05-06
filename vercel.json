@@ -1,6 +1,8 @@
 {
     "version": 2,
-    "env": {},
+    "env": {
+        "DEVTO_API_KEY": "@shop_api_devto_api_key"
+    },
     "builds": [{
         "src": "src/main.ts",
         "use": "@vercel/node"

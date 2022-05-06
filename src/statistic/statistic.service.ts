@@ -1,7 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { AxiosResponse } from 'axios';
-import { lastValueFrom, map, Observable } from 'rxjs';
+import { lastValueFrom, map } from 'rxjs';
 import { IResponseDevTo } from './models/response-devtools';
 import { IResponseGithub } from './models/response-github';
 
@@ -10,7 +9,7 @@ export class StatisticService {
   constructor(private http: HttpService) {}
 
   async getDataDevTo(): Promise<IResponseDevTo[]> {
-    const config = { 'api-key': 'p8euw9mGdAf7VvN9vmA5rWsb' };
+    const config = { 'api-key': process.env.DEVTO_API_KEY };
     const data = await lastValueFrom(
       this.http
         .get('https://dev.to/api/articles/me/published', {
