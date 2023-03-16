@@ -5,8 +5,6 @@ import { StatisticService } from './statistic.service';
 
 @Controller('statistic')
 export class StatisticController {
-  statistic: any;
-
   constructor(private statisticService: StatisticService) {}
 
   @Get('/')
