@@ -27,16 +27,36 @@ export class StatisticService {
       0,
     );
     const post = devtoData.length;
-    const { public_repos, followers, following, public_gists } = githubData;
-    return {
-      views,
-      reactions,
-      post,
-      public_repos,
-      followers,
-      following,
-      public_gists,
-    };
+    const { public_repos, followers, public_gists } = githubData;
+
+    const data = [
+      {
+        name: 'Articulos publicados',
+        quantity: post,
+      },
+      {
+        name: 'Visitas a los post',
+        quantity: views,
+      },
+      {
+        name: 'Reacciones',
+        quantity: reactions,
+      },
+      {
+        name: 'Github Repos',
+        quantity: public_repos,
+      },
+      {
+        name: 'Followers Github',
+        quantity: followers,
+      },
+      {
+        name: 'Github Gists',
+        quantity: public_gists,
+      },
+    ];
+
+    return data;
   }
 
   async getDataGithub(): Promise<IResponseGithub> {

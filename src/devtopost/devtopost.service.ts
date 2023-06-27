@@ -1,5 +1,5 @@
 import { HttpService } from '@nestjs/axios';
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { GithubService } from 'src/github/github.service';
@@ -18,7 +18,7 @@ export class DevtopostService {
         .pipe(
           catchError((err: AxiosError) => {
             this.logger.error(err.response.data);
-            throw 'Error in getArticles';
+            throw new NotFoundException('Error in getArticles');
           }),
         ),
     );
